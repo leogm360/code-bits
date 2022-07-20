@@ -1,0 +1,106 @@
+body {
+  height: 100vh;
+}
+
+main {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-col{
+  display: flex;
+  flex-direction: column;
+  gap: 15px 0;
+}
+
+.hidden{
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+/* BURGUER MENU */
+.buguer-outter-frame{
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}
+
+.buguer-inner-frame{
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.buguer-mid-frame{
+  position: absolute;
+  background: slategray;
+  border-radius: 5px;
+  width: 100%;
+  height: 7.5px;
+  pointer-events: none;
+  transition: ease-in-out 0.5s;
+}
+
+.buguer-inner-frame::before{
+  position: absolute;
+  content: "";
+  background: slategray;
+  border-radius: 5px;
+  width: 100%;
+  height: 7.5px;
+  transform: translateY(-15px);
+  transition: ease-in-out 0.5s;
+}
+
+.buguer-inner-frame::after{
+  position: absolute;
+  content: "";
+  background: slategray;
+  border-radius: 5px;
+  width: 100%;
+  height: 7.5px;
+  transform: translateY(15px);
+  transition: ease-in-out 0.5s;
+}
+
+.mid-frame__active{
+  transform: translateX(60px);
+  opacity: 0;
+  transition: ease-in-out 0.5s;
+}
+
+.inner-frame__active::before{
+  transform: rotate(45deg);
+  transition: ease-in-out 0.5s;
+}
+
+.inner-frame__active::after{
+  transform: rotate(-45deg);
+  transition: ease-in-out 0.5s;
+}
+
+.navigator{
+  position: absolute;
+  border-radius: 4px;
+  padding-top: 105%;
+  width: 300%;
+  transform: translate(60px, 80px);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.07), 
+  0 2px 4px rgba(0,0,0,0.07),
+  0 6px 8px rgba(0,0,0,0.07);
+  z-index: -1;
+  transition: ease-in-out 0.5s;
+}
+
+.navigator__active {
+  transform: translate(-95px, 80px);
+  transition: ease-in-out 0.5s;
+}
+
+.list{
+  padding: 10px 10px;
+}
